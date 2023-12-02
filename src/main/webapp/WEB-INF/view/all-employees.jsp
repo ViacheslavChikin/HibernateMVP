@@ -20,14 +20,24 @@
         <th>Surname</th>
         <th>Departmebt</th>
         <th>Salary</th>
+        <th>Operation</th>
     </tr>
 
-    <c:forEach var="epm" items="${allEmps}">
+    <c:forEach var="emp" items="${allEmps}">
+        <c:url var="updateButton" value="/updateInfo">
+            <c:param name="empId" value="${emp.id}"/>
+        </c:url>
+
         <tr>
-            <td>${epm.name}</td>
-            <td>${epm.surname}</td>
-            <td>${epm.department}</td>
-            <td>${epm.salary}</td>
+            <td>${emp.name}</td>
+            <td>${emp.surname}</td>
+            <td>${emp.department}</td>
+            <td>${emp.salary}</td>
+            <td>
+
+                <input type="button" value="Update"
+                       onClick="window.location.href ='${updateButton}'"/>
+            </td>
         </tr>
     </c:forEach>
 
